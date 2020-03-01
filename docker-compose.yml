@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+    minecraft:
+      image: dbarszczak/minecraft-server:1.0.0
+      command: ["-Xmx${XMX}", "-Xms${XMS}"]
+      restart: always
+      networks:
+        - minecraft
+      environment:
+        XMX: 1024M
+        XMS: 1024M
+        EULA: false
+      volumes:
+        - minecraft:/usr/src/minecraft
+
+networks:
+    minecraft:
+        driver: overlay
+        attachable: true
+
+volumes:
+    minecraft:
