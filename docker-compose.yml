@@ -12,6 +12,8 @@ services:
         EULA: "true"
       volumes:
         - minecraft:/usr/src/minecraft
+      stdin_open: true
+      tty: true
 
 networks:
     minecraft:
