@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+    minecraft:
+      image: dbarszczak/minecraft-server:1.0.0
+      restart: always
+      networks:
+        - minecraft
+      environment:
+        XMX: 1024M
+        XMS: 1024M
+        EULA: "true"
+      volumes:
+        - minecraft:/usr/src/minecraft
+
+networks:
+    minecraft:
+        attachable: true
+
+volumes:
+    minecraft:
